@@ -1,0 +1,19 @@
+pip install -U Flask-SQLAlchemy
+
+from flask import Flask, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
+from create_tables import Base, User, Role, PaymentMethod, Transaction
+
+app = Flask(__name__)
+DATABASE_URL = "postgresql://postgres:admin@localhost/postgres"
+app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
+
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(bind=engine)
+db = SQLAlchemy(app)
+
+
+Reuse the tables created last time, and add methods to fetch, insert, update and delete users (fetch of 1 user also),
+to fetch, insert, delete transactions, and to fetch payment methods and roles.

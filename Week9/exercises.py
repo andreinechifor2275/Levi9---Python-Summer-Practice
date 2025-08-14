@@ -124,6 +124,7 @@ products_per_page = 10
 total_pages = 3
 total_products = products_per_page * total_pages
 
+
 print(f"Product names from first {total_pages} pages:\n")
 
 for i, product in enumerate(product_tags[:total_products], start=1):
